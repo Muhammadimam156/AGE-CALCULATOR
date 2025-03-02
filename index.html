@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ AGE CALCULATOR ✨</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            flex-direction: column;
+            margin: 0;
+            color: #333;
+            text-transform: uppercase;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 420px;
+            width: 90%;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            margin-bottom: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #555;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            background: white;
+            color: #333;
+            outline: none;
+        }
+        input::placeholder {
+            color: #aaa;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background: #45a049;
+            transform: scale(1.05);
+        }
+        #ageResult {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color:  #555;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .show-result {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>✨ AGE CALCULATOR ✨</h2>
+        <label for="birthDate">Enter Your Birth Date:</label>
+        <input type="date" id="birthDate">
+        <button onclick="calculateAge()">🎯 CALCULATE AGE 🎯</button>
+        <p id="ageResult"></p>
+    </div>
+
+    <script>
+        function calculateAge() {
+            const birthDate = document.getElementById("birthDate").value;
+            if (!birthDate) {
+                alert("⚠️ Please enter your birth date!");
+                return;
+            }
+            const birth = new Date(birthDate);
+            const today = new Date();
+            let age = today.getFullYear() - birth.getFullYear();
+            let month = today.getMonth() - birth.getMonth();
+            let day = today.getDate() - birth.getDate();
+            
+            if (day < 0) {
+                month--;
+                const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+                day += lastMonth.getDate();
+            }
+            
+            if (month < 0) {
+                age--;
+                month += 12;
+            }
+            
+            const resultElement = document.getElementById("ageResult");
+            resultElement.innerText = `🎉 Your age is: ${age} years, ${month} months, and ${day} days! 🎉`;
+            resultElement.classList.add("show-result");
+        }
+    </script>
+</body>
+</html>
