@@ -10,8 +10,8 @@ A simple and beautifully designed Age Calculator built with **HTML, CSS, and Jav
 - **Instant calculations** without page reload ⚡
 
 ## 📸 Screenshot
+![Age Calculator Screenshot](AGE%20CALCULATOR.png)
 
-(Include a screenshot of the calculator here)
 
 ## 🛠️ Technologies Used
 
