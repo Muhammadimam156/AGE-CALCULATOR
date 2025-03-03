@@ -106,7 +106,10 @@
         function calculateAge() {
             const birthDate = document.getElementById("birthDate").value;
             if (!birthDate) {
-                alert("⚠️ Please enter your birth date!");
+                const resultElement = document.getElementById("ageResult");
+                    resultElement.innerText = `⚠️ Please enter your birth date!`;
+                    resultElement.style.color = "red";
+                      resultElement.classList.add("show-result");
                 return;
             }
             const birth = new Date(birthDate);
@@ -114,6 +117,8 @@
             let age = today.getFullYear() - birth.getFullYear();
             let month = today.getMonth() - birth.getMonth();
             let day = today.getDate() - birth.getDate();
+
+         
             
             if (day < 0) {
                 month--;
@@ -125,10 +130,20 @@
                 age--;
                 month += 12;
             }
-            
-            const resultElement = document.getElementById("ageResult");
+
+            if(today.getFullYear() < birth.getFullYear()){
+                const resultElement = document.getElementById("ageResult");
+                    resultElement.innerText = `plz select right date of birth`;
+                    resultElement.style.color = "red";
+                      resultElement.classList.add("show-result");
+                    }else{
+                         const resultElement = document.getElementById("ageResult");
             resultElement.innerText = `🎉 Your age is: ${age} years, ${month} months, and ${day} days! 🎉`;
+            resultElement.style.color = "#555"; 
             resultElement.classList.add("show-result");
+                    }
+            
+           
         }
     </script>
 </body>
