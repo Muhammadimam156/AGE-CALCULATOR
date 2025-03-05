@@ -23,7 +23,7 @@ A simple and beautifully designed Age Calculator built with **HTML, CSS, and Jav
 
 1. Clone this repository:
    ```sh
-   git clone https://github.com/yourusername/age-calculator.git
+   https://github.com/Muhammadimam156/AGE-CALCULATOR.git
    ```
 2. Open `index.html` in your browser.
 3. Enter your birth date.
